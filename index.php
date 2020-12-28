@@ -8,6 +8,18 @@
     $_SESSION['username']= $user_data['username'];
     $_SESSION['email']= $user_data['email'];
 
+    $u_id=$user_data['id'];
+    $name=$user_data['name'];
+    $email=$user_data['email'];
+    $pwd=$user_data['pwd'];
+    $gender=$user_data['gender'];
+    $birthday=$user_data['dob'];
+    $bio=$user_data['bio'];
+    $status=$user_data['user_status'];
+    $posts=$user_data['posts'];
+    $profile_pic=$user_data['user_profile'];
+    $cover=$user_data['user_cover'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,6 +39,9 @@
                 background-repeat: no-repeat;
                 background-size: contain;
             }
+            body{
+                overflow-x:hidden;
+            }
 
         </style>
 
@@ -34,8 +49,21 @@
     <body>
 
         <?php require 'navbar2.php'; ?>
-        <div class="container col-sm-12">
-            <img id="profile" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-cEUv68-t9eBR4wZirhUwHV7j8U9FTEWuKQ&usqp=CAU" class="img-fluid" alt="Responsive image">
+        <div class="row">
+            <div id="insert_post" class="col-sm-12 mt-4"> 
+                <center>
+                    <form action="index.php?id=<?php echo $u_id; ?>" method="post" id ="form" enctype="multiport/form-data" style="margin-left:10px; margin-right:10px;">
+                        <textarea class="form-control" id="content" rows="2" width="500px" name="content" 
+                        placeholder="What's in your mind?"></textarea><br>
+                        <label class="btn-sm btn-success" id="upload_image_button">
+                        <input type="file" name="upload_image" size="30">
+                        </label> 
+                        <button id="btn-post" class="btn-sm btn-success" name="sub">Post</button>
+                    </form>
+                    <?php  insertport(); ?>
+                </center>
+
+
         </div>
 
 

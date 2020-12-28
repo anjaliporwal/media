@@ -3,10 +3,10 @@
     include 'connection.php';
     include 'functions.php';
 
-    if(!empty($_POST["remember"])) {
-        setcookie ("email",$_POST["email"],time()+ (86400 * 30), "/");
-        setcookie ("pwd",$_POST["pwd"],time()+ (86400 * 30), "/");
-    } 
+    // if(!empty($_POST["remember"])) {
+    //     setcookie ("email",$_POST["email"],time()+ (86400 * 30), "/");
+    //     setcookie ("pwd",$_POST["pwd"],time()+ (86400 * 30), "/");
+    // } 
 
     if($_SERVER['REQUEST_METHOD']=="POST"){
         $email=$_POST["email"];
@@ -84,7 +84,7 @@
                 <small><a style="text-decoration:none;float: right;color: #187FAB;" data-toggle="tooltip" title="Reset Password" href="forgot_password.php">Forgot password</a></small>
                 <br><br>
                 <input type="submit" class="btn btn-dark" value="Login" name="login"> 
-                <a style="text-decoration: none;float: right;color: cornflowerblue;" data-toggle="tooltip" title="login" href="signup.php">Create a new account</a>
+                <a style="text-decoration: none;float: right;color: cornflowerblue;" data-toggle="tooltip" title="login" href="signin.php">Create a new account</a>
             </form>
         </div>
 

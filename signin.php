@@ -12,14 +12,17 @@
         $birthday=$_POST['dob'];
         $status = "verified";
         $posts = "no";
-        $profile_pic = "profile.png";
-        $cover = "bg.jpg";
+        $profile_pic = 'profile.png';
+        $cover = 'BG.jpg';
     }
 
     if(!empty($name) && !empty($pwd) && !empty($pwd2) && !empty($email)){
         if($pwd === $pwd2){
-            $query="INSERT INTO users(username,email,pwd,gender,dob,bio,user_profile,cover,user_status,post,recover_account)values('$name', '$email','$pwd','$gender','$birthday','.....','$profile_pic','$cover','$status','$posts','Hey there!')";
+            echo $name;
+            $query="INSERT INTO users(username,email,pwd,gender,date_of_birth,bio,user_profile,user_cover,user_status,posts,recover_account)
+            values('$name', '$email','$pwd','$gender','$birthday','.....','$profile_pic','$cover','$status','$posts','Hey there!')";
             mysqli_query($conn, $query);
+            echo $query;
             $_SESSION['email']=$email;
             $_SESSION['username'] = $name;
             header("Location: login.php");
@@ -58,7 +61,6 @@
         <div class="container mt-3">
             <h2>SignUp</h2>
             <form method="post">
-                
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name" required>
